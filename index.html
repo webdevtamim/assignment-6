@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    
+    <title>PHero Tube</title>
+
+    <!-- tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'color1': '#252525',
+                'color2': 'rgba(37, 37, 37, 0.70)',
+                'color3': '#171717',
+                'color4': 'rgba(23, 23, 23, 0.70)',
+                'btn1': '#FF1F3D',
+                'btn2': 'rgba(37, 37, 37, 0.20)',
+                'btn3': 'rgba(37, 37, 37, 0.15)',
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        :root {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-white px-5">
+    <header class="max-w-[1440px] mx-auto">
+        <nav class="pt-12 pb-8 grid grid-cols-3">
+            <div>
+                <a href="index.html"><img class="" src="images/Logo.png" alt="Logo"></a>
+            </div>
+            <div class="text-center">
+                <button class="bg-btn2 text-color1 text-lg font-medium py-2.5 px-5 rounded">Sort by view</button>
+            </div>
+            <div class="text-right">
+                <button class="bg-btn1 text-white text-lg font-medium py-2.5 px-5 rounded">Blog</button>
+            </div>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- main section -->
+    <main class="max-w-[1440px] mx-auto">
+        <section>
+            <div class="text-center space-x-6 pt-8 pb-10">
+                <button class="bg-btn2 text-color1 text-lg font-medium py-2.5 px-5 rounded">All</button>
+                <button class="bg-btn2 text-color1 text-lg font-medium py-2.5 px-5 rounded">Music</button>
+                <button class="bg-btn2 text-color1 text-lg font-medium py-2.5 px-5 rounded">Comedy</button>
+                <button class="bg-btn2 text-color1 text-lg font-medium py-2.5 px-5 rounded">Drawing</button>
+            </div>
+        </section>
+        <section>
+            <div id="card-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div>
+                    <figure><img src="https://i.ibb.co/L1b6xSq/shape.jpg" class="rounded-lg" alt="Shoes" /></figure>
+                    <div class="flex gap-3 pt-5">
+                        <div>
+                            <img class="w-16 rounded-full" src="https://i.ibb.co/D9wWRM6/olivia.jpg" alt="">
+                        </div>
+                        <div>
+                            <h2 class="text-color3 text-base font-bold">Building a Winning UX Strategy Using the Kano Model</h2>
+                            <p class="text-color4 text-sm font-normal pt-3 pb-1">Awlad Hossain</p>
+                            <p class="text-color4 text-sm font-normal">91K views</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
