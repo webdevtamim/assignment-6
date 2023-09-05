@@ -1,3 +1,29 @@
+// category button 
+const handleCategory = async () =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/categories`);
+    const data = await res.json();
+    const categories = data.data;
+    displayCategory(categories);
+}
+
+const displayCategory = categories =>{
+
+    const categoryContainer = document.getElementById('category-container');
+    categoryContainer.classList = `text-center lg:space-x-6 md:space-x-4 space-x-3 space-y-4 md:space-y-0 pt-8 pb-10`;
+
+    categories.forEach(category =>{
+        const categoryCard = document.createElement('button');
+        categoryCard.classList = `bg-btn2 text-color1 md:text-lg text-sm font-medium py-2.5 px-5 rounded`;
+        categoryCard.setAttribute('onclick', `category${category.category}()`);
+        categoryCard.innerHTML = `${category.category}`;
+        categoryContainer.appendChild(categoryCard);
+    })
+}
+handleCategory();
+
+
+
+// video card 
 const loadVideo = async (searchText) =>{
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${searchText}`);
     const data = await res.json();
@@ -9,6 +35,7 @@ const loadVideo = async (searchText) =>{
 const displayVideos = videos =>{
 
     const videoContainer = document.getElementById('video-container');
+    videoContainer.classList = `grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6`;
     videoContainer.textContent = '';
 
     videos.forEach(video =>{
@@ -35,29 +62,52 @@ const displayVideos = videos =>{
             videoContainer.appendChild(videoCard);
         })
     })
+    // hide loading spinner 
+    toggleLoadingSpinner(false);
 }
 
-// handle search button 
+// handle category button
 const categoryAll = () =>{
-    const searchText = 1000
+    toggleLoadingSpinner(true);
+    const searchText = 1000;
     console.log(searchText);
     loadVideo(searchText);
 }
 const categoryMusic = () =>{
-    const searchText = 1001
+    toggleLoadingSpinner(true);
+    const searchText = 1001;
     console.log(searchText);
     loadVideo(searchText);
 }
 const categoryComedy = () =>{
-    const searchText = 1003
+    toggleLoadingSpinner(true);
+    const searchText = 1003;
     console.log(searchText);
     loadVideo(searchText);
 }
 const categoryDrawing = () =>{
-    const searchText = 1005
+    toggleLoadingSpinner(true);
+    const searchText = 1005;
     console.log(searchText);
     loadVideo(searchText);
 }
 
+// loading spinner 
+const loadingSpinner = document.getElementById('loading-spinner');
+loadingSpinner.classList = `text-center hidden`;
+loadingSpinner.innerHTML = `
+    <span class="loading loading-spinner loading-lg"></span>
+`;
 
-// loadVideo();
+const toggleLoadingSpinner = (isLoading) =>{
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if(isLoading){
+        loadingSpinner.classList.remove('hidden');
+    }
+    else{
+        loadingSpinner.classList.add('hidden');
+    }
+}
+
+const defaultData = 1000;
+loadVideo(defaultData);

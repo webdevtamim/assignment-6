@@ -57,16 +57,16 @@
     <!-- main section -->
     <main class="max-w-[1440px] mx-auto">
         <section>
-            <div class="text-center lg:space-x-6 md:space-x-4 space-x-3 space-y-4 md:space-y-0 pt-8 pb-10">
-                <button onclick="categoryAll()" class="bg-btn2 text-color1 md:text-lg text-sm font-medium py-2.5 px-5 rounded">All</button>
-                <button onclick="categoryMusic()" class="bg-btn2 text-color1 md:text-lg text-sm font-medium py-2.5 px-5 rounded">Music</button>
-                <button onclick="categoryComedy()" class="bg-btn2 text-color1 md:text-lg text-sm font-medium py-2.5 px-5 rounded">Comedy</button>
-                <button onclick="categoryDrawing()" class="bg-btn2 text-color1 md:text-lg text-sm font-medium py-2.5 px-5 rounded">Drawing</button>
-            </div>
+            <!-- category button -->
+            <div id="category-container"></div>
         </section>
+
         <section>
-            <div id="video-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            </div>
+            <!-- loading spinner -->
+            <div id="loading-spinner"></div>
+
+            <!-- video card -->
+            <div id="video-container"></div>
         </section>
     </main>
 
