@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    
+    <title>Blog - PHero Tube</title>
+
+    <!-- tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'color1': '#252525',
+                'btn1': '#FF1F3D',
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        :root {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-white px-5">
+    <header class="max-w-[1000px] mx-auto">
+        <nav class="pt-12 pb-8">
+            <img onclick="window.location.href='index.html';" class="mx-auto cursor-pointer" src="images/Logo.png" alt="Logo">
+        </nav>
+        <hr>
+    </header>
+
+    <!-- main section -->
+    <main class="max-w-[1000px] mx-auto pt-16">
+        <section>
+          <div class="collapse collapse-arrow bg-btn1 mb-7 shadow-lg">
+            <input type="radio" name="my-accordion-2" checked="checked" /> 
+            <div class="collapse-title text-xl font-medium text-white">
+              The scope of <span class="font-bold">var</span>, <span class="font-bold">let</span>, and <span class="font-bold">const</span>
+            </div>
+            <div class="collapse-content bg-white pt-4 text-color1 font-medium"> 
+              <p><b>var</b> declarations are globally scoped or function scoped while <b>let</b> and <b>const</b> are block scoped. <b>var</b> variables can be updated and re-declared within its scope; <b>let</b> variables can be updated but not re-declared; <b>const</b> variables can neither be updated nor re-declared.</p>
+            </div>
+          </div>
+          <div class="collapse collapse-arrow bg-btn1 mb-7 shadow-lg">
+            <input type="radio" name="my-accordion-2" /> 
+            <div class="collapse-title text-xl font-medium text-white">
+              The use cases of <span class="font-bold">null</span> and <span class="font-bold">undefined</span>
+            </div>
+            <div class="collapse-content bg-white pt-4 text-color1 font-medium"> 
+              <p><b>Null</b> and <b>Undefined</b> are both special values in JavaScript that represent the absence of a value, but they are used in slightly different contexts and have different use cases.
+              <br><br>
+              <b>Undefined</b> means the variable has been declared, but its value has not been assigned. <b>Null</b> means an empty value or a blank value. The typeof() operator returns <b>undefined</b> for an <b>undefined</b> variable. The typeof() operator returns the type as an object for a variable whose value is assigned as <b>null</b>.
+              </p>
+            </div>
+          </div>
+          <div class="collapse collapse-arrow bg-btn1 mb-7 shadow-lg">
+            <input type="radio" name="my-accordion-2" /> 
+            <div class="collapse-title text-xl font-medium text-white">
+            REST API
+            </div>
+            <div class="collapse-content bg-white pt-4 text-color1 font-medium"> 
+              <p>REST, which stands for Representational State Transfer, is an architectural style for designing networked applications.
+              <br>
+              A REST API is an API that conforms to the design principles of the REST, or representational state transfer architectural style. For this reason, REST APIs are sometimes referred to RESTful APIs.</p>
+            </div>
+          </div>
+        </section>
+    </main>
+</body>
+</html>

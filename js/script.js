@@ -62,17 +62,20 @@ const displayVideos = videos =>{
             const videoCard = document.createElement('div');
             videoCard.classList = `pb-3`;
             videoCard.innerHTML = `
-                <figure><img src="${video.thumbnail}" class="rounded-lg w-full xl:h-48 md:h-40 hover:brightness-75 duration-150 cursor-pointer" /></figure>
+                <figure>
+                    <img src="${video.thumbnail}" class="rounded-lg w-full xl:h-48 md:h-40 hover:brightness-75 duration-150 cursor-pointer" />
+                    <span class="bg-color3 py-1 px-1.5 rounded text-xs text-white">${video.others.posted_date} ago</span>
+                </figure>
                 <div class="flex gap-3 pt-5">
                     <div>
                         <img class="w-12 h-12 rounded-full cursor-pointer" src="${profile.profile_picture}">
                     </div>
                     <div>
                         <h2 class="text-color3 text-base font-bold">${video.title}</h2>
-                        <div>
+                        <div class="flex items-center">
                             <span class="text-color4 text-sm font-normal pt-3 pb-1">${profile.profile_name}</span>
-                            <span>
-                            <img src="images/badge.svg"
+                            <span class="mt-2 ml-2">
+                            <img src="${profile.verified?'images/badge.svg':''}"
                             </span>
                         </div>
                         <p class="text-color4 text-sm font-normal">${video.others.views} views</p>
