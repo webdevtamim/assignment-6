@@ -21,9 +21,11 @@ const displayCategory = categories =>{
 handleCategory();
 
 // handle category button
-const categoryHandle = (categoryId) =>{
+const categoryHandle = (categoryId, sortOrder) => {
+    const videoContainer = document.getElementById('video-container');
+    videoContainer.textContent = '';
     toggleLoadingSpinner(true);
-    loadVideo(categoryId);
+    loadVideo(categoryId, sortOrder);
 }
 
 // create loading spinner 
@@ -44,10 +46,16 @@ const toggleLoadingSpinner = (isLoading) =>{
 }
 
 // video cards 
-const loadVideo = async (searchText) =>{
+const loadVideo = async (searchText, sortOrder) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${searchText}`);
     const data = await res.json();
     const videos = data.data;
+    
+    // Sort videos based on video.category_id
+    if (sortOrder === 'desc') {
+        videos.sort((a, b) => parseInt(b.others.views) - parseInt(a.others.views));
+    }
+
     displayVideos(videos);
 }
 
@@ -56,6 +64,15 @@ const displayVideos = videos =>{
     videoContainer.classList = `grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6`;
     videoContainer.textContent = '';
 
+    // Check if there are no videos to display
+    if (videos.length === 0) {
+        const noContentMessage = document.getElementById('no-content-message');
+        noContentMessage.classList.remove('hidden');
+    } else {
+        const noContentMessage = document.getElementById('no-content-message');
+        noContentMessage.classList.add('hidden');
+    }
+    
     videos.forEach(video =>{
         const author = video.authors;
         author.forEach(profile =>{
@@ -89,4 +106,10 @@ const displayVideos = videos =>{
     // hide loading spinner 
     toggleLoadingSpinner(false);
 }
-loadVideo(1000);
+
+// Function to sort videos in descending order
+function sortDescending() {
+    categoryHandle(1000, 'desc');
+}
+
+categoryHandle(1000);

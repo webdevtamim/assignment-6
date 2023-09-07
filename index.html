@@ -45,7 +45,7 @@
                 <a href="index.html"><img src="images/Logo.png" alt="Logo"></a>
             </div>
             <div class="text-center float-right sm:float-none pl-3 sm:pl-0">
-                <button class="bg-btn2 hover:bg-btn3 text-color1 md:text-lg text-sm font-medium py-2.5 px-5 rounded">Sort by view</button>
+                <button onclick="sortDescending()" class="bg-btn2 hover:bg-btn3 text-color1 md:text-lg text-sm font-medium py-2.5 px-5 rounded">Sort by view</button>
             </div>
             <div class="text-right float-right sm:float-none">
                 <button onclick="window.location.href='blog.html';" class="bg-btn1 text-white md:text-lg text-sm font-medium py-2.5 px-5 rounded">Blog</button>
@@ -63,7 +63,11 @@
             <!-- loading spinner -->
             <div id="loading-spinner"></div>
 
-            <div id="undefined-section"></div>
+            <!-- no content message -->
+            <div id="no-content-message" class="text-center mt-8 mb-20 hidden max-w-[430px] mx-auto">
+                <img class="mx-auto pb-8" src="images/Icon.png" alt="no-data">
+                <p class="sm:text-3xl text-xl font-bold text-color3">Oops!! Sorry, There is no content here</p>
+            </div>
 
             <!-- video cards -->
             <div id="video-container"></div>
