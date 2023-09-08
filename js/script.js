@@ -77,12 +77,19 @@ const displayVideos = videos =>{
         const author = video.authors;
         author.forEach(profile =>{
             const timeCounter = video.others.posted_date;
+            const hourse = Math.floor((timeCounter / 60) / 60);
+            const minutes = Math.floor((timeCounter / 60) % 60);
+            const results = hourse + ' hrs' + ' ' + minutes + ' min' + ' ago';
+
+            // if timeCounter has a value before displaying span 
+            const showTimeCounter = timeCounter ? `<span class="absolute right-3 bottom-3 bg-color3 py-1 px-1.5 rounded text-xs text-white">${results}</span>` : '';
+
             const videoCard = document.createElement('div');
             videoCard.classList = `pb-3`;
             videoCard.innerHTML = `
                 <figure class="relative">
                     <img src="${video.thumbnail}" class="rounded-lg w-full xl:h-48 md:h-40 hover:brightness-75 duration-150 cursor-pointer" />
-                    <span class="absolute right-3 bottom-3 bg-color3 py-1 px-1.5 rounded text-xs text-white">${video.others.posted_date?Math.floor((timeCounter / 60) / 60) + ' hrs' + ' ' + Math.floor((timeCounter / 60) % 60) + ' min' + ' ago':''}</span>
+                    ${showTimeCounter}  <!-- Conditionally display span -->
                 </figure>
                 <div class="flex gap-3 pt-5">
                     <div>
